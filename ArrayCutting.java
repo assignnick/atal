@@ -1,39 +1,87 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Scanner;
 
-import java.util.*;
-
-public class Main {
-    public static void main(String[] args) {
+public class ArrayCutting {
+            public static void main(String[] args) {
 
 
 //        InputStreamReader input = new InputStreamReader(System.in);
 //        BufferedReader buffer = new BufferedReader(input);
-        // FileInputStream fstream = new FileInputStream("text.txt");
-        // BufferedReader buffer = new BufferedReader(new InputStreamReader(fstream));
+            // FileInputStream fstream = new FileInputStream("text.txt");
+            // BufferedReader buffer = new BufferedReader(new InputStreamReader(fstream));
 
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int k = scanner.nextInt();
+            Scanner scanner = new Scanner(System.in);
+            int n = scanner.nextInt();
+            int k = scanner.nextInt();
 
-        int[][] chisla = new int[200005][2];
-        for (int i = 0; i < chisla.length; i++) {
-            chisla[i][1] = i;
-        }
-        ArrayList<Integer> list = new ArrayList<>();
-
-        Arrays.sort(chisla, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return Integer.compare(o2[0], o1[0]);
+            int[][] chisla = new int[200005][2];
+            for (int i = 0; i < chisla.length; i++) {
+                chisla[i][1]=i;
             }
-        });
+            ArrayList<Integer> list = new ArrayList<>();
+
+            int tmp;
+
+            for (int i = 0; i < n; i++) {
+                tmp = scanner.nextInt();
+                chisla[tmp][0]++;
+            }
+
+
+            Arrays.sort(chisla, new Comparator<int[]>() {
+                @Override
+                public int compare(int[] o1, int[] o2) {
+                    return Integer.compare(o2[0], o1[0]);
+                }
+            });
+
+            int[][] chisla2= new int[k][2];
+
+            for (int i = 0; i < k; i++) {
+                chisla2[i][0]=chisla[i][0];
+                chisla2[i][1]=chisla[i][1];
+            }
+
+
+            int maxI=0;
+
+            list.add(chisla2[maxI][1]);
+            chisla2[0][0]/=2;
+
+            int max=chisla2[maxI][0];
+            int tomax;
+            int tempK=k-1;
+
+            for (int i = 1; i < k-1; i++) {
+                if(tempK==0)
+                    break;
+                tomax= chisla2[i][0];
+                if ((max) >= tomax) {
+                    tempK--;
+                    list.add(chisla2[maxI][1]);
+                    chisla2[maxI][0]/=2;
+                    i--;
+                    max=chisla2[maxI][0];
+                }
+                else{
+                    max=tomax;
+                    maxI++;
+                }
+            }
 
 
 
+            for (int i = 0; i < list.size(); i++)
+                System.out.print(list.get(i)+" ");
+
+
+        }
 
     }
-}
 
 //        int x1,x2,y;
 //        for(int i=0;i<n;i++){

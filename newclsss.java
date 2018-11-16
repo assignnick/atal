@@ -1,10 +1,19 @@
 package com.company;
 
 public class newclsss {
-  /*  String str;
-    public customHash(String str) {
-        this.str=str;
+  /*
+
+           InputStreamReader vvod = new InputStreamReader(System.in);
+        BufferedReader buffer = new BufferedReader(vvod);
+        Scanner scanner = new Scanner(System.in);
+         scanner = new Scanner(new File("E:/Users/assig/IdeaProjects/AnotherTestAlgLab/src/com/company/text.txt"));
+
+
+
     }*/
+
+
+
 
 
 }
