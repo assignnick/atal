@@ -11,7 +11,7 @@ public class Main {
 //        BufferedReader buffer = new BufferedReader(input);
         // FileInputStream fstream = new FileInputStream("text.txt");
         // BufferedReader buffer = new BufferedReader(new InputStreamReader(fstream));
-
+//1
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int k = scanner.nextInt();
