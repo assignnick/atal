@@ -68,7 +68,7 @@ public class Main {
                 bl += (rez + 1);
                 wt -= (rez + 1);
             }
-
+//ghfgh
 
             if (x4 <= x1 && y4 <= y1 || x3 <= x2 && y3 <= y2) {
                 if (x2 < x4)
